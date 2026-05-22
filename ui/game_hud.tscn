@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b6kmoexoeomeu"]
+
+[ext_resource type="Script" uid="uid://pi65x71ws5p7" path="res://ui/game_hud.gd" id="1_yi54v"]
+
+[node name="GameHUD" type="CanvasLayer" unique_id=945971603]
+script = ExtResource("1_yi54v")
+
+[node name="Control" type="Control" parent="." unique_id=2065193528]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=2128090119]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ImprisonButton" type="Button" parent="Control/HBoxContainer" unique_id=418334506]
+layout_mode = 2
+
+[node name="ReleaseButton" type="Button" parent="Control/HBoxContainer" unique_id=1841258222]
+layout_mode = 2
+
+[node name="ExileButton" type="Button" parent="Control/HBoxContainer" unique_id=1121671648]
+layout_mode = 2
