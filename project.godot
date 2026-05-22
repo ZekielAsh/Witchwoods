@@ -15,12 +15,6 @@ run/main_scene="uid://dfc6w04b2hq2f"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-GameManager="*uid://bdl5wngj2ea03"
-PrisonManager="*uid://rpt0qubms3ox"
-EventBus="*uid://cgjw4mfkcdlrg"
-
 [editor]
 
 version_control/autoload_on_startup=true

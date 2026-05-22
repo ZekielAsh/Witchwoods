@@ -13,7 +13,6 @@ enum State {
 	EXILED
 }
 
-@export var character_name : String
 @export var role_name : String
 @export var faction : Faction
 

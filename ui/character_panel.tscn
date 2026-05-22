@@ -10,9 +10,6 @@ script = ExtResource("1_5hu6c")
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1123396214]
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=546041725]
-layout_mode = 2
-
 [node name="RoleLabel" type="Label" parent="VBoxContainer" unique_id=259594532]
 layout_mode = 2
 

@@ -1,12 +1,14 @@
+class_name PrisonManager
 extends Node
 
 const MAX_PRISONERS = 2
 
 var imprisoned_characters = []
 
+@onready var bus : EventBus = $"../EventBus"
 
-func imprison(character):
 
+func imprison(character : CharacterData):
 	if character.state != CharacterData.State.FREE:
 		return false
 
@@ -15,21 +17,23 @@ func imprison(character):
 
 	imprisoned_characters.append(character)
 	character.state = CharacterData.State.IMPRISONED
-
-	EventBus.character_imprisoned.emit(character)
-
+	bus.character_imprisoned.emit(character)
 	return true
 
 
 func release(character : CharacterData):
 	if character.state != CharacterData.State.IMPRISONED:
 		return
+
 	imprisoned_characters.erase(character)
 	character.state = CharacterData.State.FREE
+	bus.character_released.emit(character)
 
 
 func exile(character : CharacterData):
 	if character.state != CharacterData.State.IMPRISONED:
 		return
+
 	imprisoned_characters.erase(character)
 	character.state = CharacterData.State.EXILED
+	bus.character_exiled.emit(character)
