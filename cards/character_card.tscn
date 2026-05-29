@@ -25,7 +25,7 @@ texture = ExtResource("2_wrcus")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RoleHintLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=265871828]
+[node name="RoleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=265871828]
 layout_mode = 2
 
 [node name="StateLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=568867165]

@@ -15,3 +15,8 @@ layout_mode = 2
 
 [node name="StateLabel" type="Label" parent="VBoxContainer" unique_id=359195976]
 layout_mode = 2
+
+[node name="InformationLabel" type="Label" parent="VBoxContainer" unique_id=1547290431]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+autowrap_mode = 3

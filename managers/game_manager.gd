@@ -4,8 +4,6 @@ extends Node
 
 enum InteractionMode {
 	NONE,
-	IMPRISON,
-	RELEASE,
 	EXILE
 }
 
@@ -13,7 +11,8 @@ enum InteractionMode {
 @onready var character_panel = $CharacterPanel
 
 @onready var bus : EventBus = $EventBus
-@onready var prison_manager : PrisonManager = $PrisonManager
+@onready var match_controller : MatchController = $MatchController
+@onready var end_screen = $"../EndScreen"
 
 var card_scene = preload("res://cards/character_card.tscn")
 
@@ -21,47 +20,56 @@ var current_mode := InteractionMode.NONE
 
 
 func _ready():
-
 	bus.character_selected.connect(_on_character_selected)
+	bus.game_won.connect(_on_game_won)
+	bus.game_lost.connect(_on_game_lost)
 
-	create_test_character(
-		"Detective",
+	create_test_match()
+	
+	end_screen.retry_requested.connect(_restart_game)
+
+
+func create_test_match():
+	create_character(
+		CharacterData.Role.NAIVE,
+		CharacterData.Role.NAIVE,
 		CharacterData.Faction.TOWN
 	)
 
-	create_test_character(
-		"Cazador",
+	create_character(
+		CharacterData.Role.COUNSELOR,
+		CharacterData.Role.COUNSELOR,
+		CharacterData.Faction.TOWN
+	)
+
+	create_character(
+		CharacterData.Role.LIBRARIAN,
+		CharacterData.Role.LIBRARIAN,
+		CharacterData.Faction.TOWN
+	)
+
+	create_character(
+		CharacterData.Role.INFILTRATOR,
+		CharacterData.Role.COUNSELOR,
 		CharacterData.Faction.SABOTEUR
 	)
 
 
-func create_test_character(role, faction):
+func create_character(
+	real_role,
+	visible_role,
+	faction
+):
 	var data = CharacterData.new()
-	data.role_name = role
+	data.real_role = real_role
+	data.visible_role = visible_role
 	data.faction = faction
-
+	
 	var card : CharacterCard = card_scene.instantiate()
 	npc_container.add_child(card)
 	card.setup(data)
 	card.card_selected.connect(_on_card_selected)
-
-	_connect_card_to_bus(card)
-
-
-func _connect_card_to_bus(card : CharacterCard):
-
-	bus.character_imprisoned.connect(
-		func(character):
-			if character == card.data:
-				card.refresh()
-	)
-
-	bus.character_released.connect(
-		func(character):
-			if character == card.data:
-				card.refresh()
-	)
-
+	
 	bus.character_exiled.connect(
 		func(character):
 			if character == card.data:
@@ -70,13 +78,11 @@ func _connect_card_to_bus(card : CharacterCard):
 
 
 func set_mode(mode : InteractionMode):
-
 	current_mode = mode
 	bus.interaction_mode_changed.emit(mode)
 
 
 func clear_mode():
-
 	current_mode = InteractionMode.NONE
 	bus.interaction_mode_changed.emit(current_mode)
 
@@ -87,12 +93,19 @@ func _on_card_selected(character : CharacterData):
 
 func _on_character_selected(character : CharacterData):
 	match current_mode:
-		
 		InteractionMode.NONE:
 			character_panel.display_character(character)
-		InteractionMode.IMPRISON:
-			prison_manager.imprison(character)
-		InteractionMode.RELEASE:
-			prison_manager.release(character)
 		InteractionMode.EXILE:
-			prison_manager.exile(character)
+			match_controller.exile(character)
+			character_panel.display_character(character)
+
+
+func _on_game_won():
+	end_screen.show_victory()
+
+
+func _on_game_lost():
+	end_screen.show_defeat()
+	
+func _restart_game():
+	get_tree().reload_current_scene()
