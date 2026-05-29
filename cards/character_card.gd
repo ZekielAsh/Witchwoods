@@ -5,8 +5,7 @@ signal card_selected(character : CharacterData)
 
 var data : CharacterData
 
-@onready var state_label = $MarginContainer/VBoxContainer/StateLabel
-@onready var role_label = $MarginContainer/VBoxContainer/RoleLabel
+@onready var role_label = %RoleLabel
 
 
 func _ready():
@@ -26,10 +25,8 @@ func refresh():
 
 func update_visuals():
 	if data.state == CharacterData.State.EXILED:
-		state_label.text = "Exiliado"
 		role_label.text = data.get_real_role_name()
 	else:
-		state_label.text = "Libre"
 		role_label.text = data.get_role_name()
 
 

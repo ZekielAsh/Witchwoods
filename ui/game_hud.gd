@@ -2,8 +2,8 @@ extends CanvasLayer
 
 @onready var game_manager : GameManager = $"../GameManager"
 
+@onready var exile_button = %ExileButton
 @onready var mode_label = $ModeLabel
-@onready var exile_button = $ExileButton
 
 
 func _ready():

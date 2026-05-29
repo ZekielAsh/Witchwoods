@@ -26,7 +26,5 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="RoleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=265871828]
-layout_mode = 2
-
-[node name="StateLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=568867165]
+unique_name_in_owner = true
 layout_mode = 2

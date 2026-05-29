@@ -11,12 +11,11 @@ script = ExtResource("1_5hu6c")
 layout_mode = 2
 
 [node name="RoleLabel" type="Label" parent="VBoxContainer" unique_id=259594532]
-layout_mode = 2
-
-[node name="StateLabel" type="Label" parent="VBoxContainer" unique_id=359195976]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="InformationLabel" type="Label" parent="VBoxContainer" unique_id=1547290431]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 autowrap_mode = 3
