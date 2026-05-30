@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pi65x71ws5p7" path="res://ui/game_hud.gd" id="1_yi54v"]
 [ext_resource type="Texture2D" uid="uid://e3st0sgfhelg" path="res://assets/textures/Boton.png" id="2_io01e"]
+[ext_resource type="PackedScene" uid="uid://baq5mrshg4uvy" path="res://ui/tutorial_tip.tscn" id="3_5bps4"]
 
 [node name="GameHUD" type="CanvasLayer" unique_id=945971603]
 script = ExtResource("1_yi54v")
@@ -31,4 +32,17 @@ offset_right = 1043.0
 offset_bottom = 24.0
 scale = Vector2(0.963932, 0.97694755)
 
+[node name="HelpButton" type="Button" parent="." unique_id=35945442]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_top = 50.0
+offset_bottom = 81.0
+grow_horizontal = 0
+text = "Consejos"
+
+[node name="TutorialTip" parent="." unique_id=1491652203 instance=ExtResource("3_5bps4")]
+
 [connection signal="pressed" from="Control/HBoxContainer/ExileButton" to="." method="_on_exile_button_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]

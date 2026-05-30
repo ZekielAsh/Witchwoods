@@ -58,7 +58,7 @@ func get_information() -> String:
 		Role.NAIVE:
 			if real_role == Role.INFILTRATOR:
 				return "No quiero contarte."
-			return "Soy aldeano."
+			return "Soy un aldeano."
 		Role.COUNSELOR:
 			if real_role == Role.INFILTRATOR:
 				return "Tengo 2 saboteadores cerca."

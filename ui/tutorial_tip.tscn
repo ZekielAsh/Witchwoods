@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://baq5mrshg4uvy"]
+
+[ext_resource type="Script" uid="uid://cv770c64kulxx" path="res://ui/tutorial_tip.gd" id="1_vhqp2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhqp2"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.9309246, 0.7014107, 0.42358288, 0.82000005)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="TutorialTip" type="PopupPanel" unique_id=1491652203]
+transparent_bg = false
+oversampling_override = 1.0
+size = Vector2i(500, 470)
+theme_override_styles/panel = SubResource("StyleBoxFlat_vhqp2")
+script = ExtResource("1_vhqp2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1449362763]
+custom_minimum_size = Vector2(400, 400)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1375878174]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1296428660]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Cómo jugar"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TutorialText" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2064866251]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[b]Objetivo[/b]
+Encuentra y exilia a todos los saboteadores.
+
+[b]Cómo obtener pistas[/b]
+Hace click sobre los personajes para escuchar sus declaraciones.
+
+[b]Cuidado[/b]
+Los infiltrados imitan roles aldeanos y siempre mienten.
+
+[b]Derrota[/b]
+Si la cantidad de saboteadores es igual a la de aldeanos, perderas."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=56136038]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Cerrar"
