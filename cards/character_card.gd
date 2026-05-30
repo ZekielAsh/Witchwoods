@@ -5,8 +5,7 @@ signal card_selected(character : CharacterData)
 
 var data : CharacterData
 
-@onready var state_label = $MarginContainer/VBoxContainer/StateLabel
-@onready var role_hint_label = $MarginContainer/VBoxContainer/RoleHintLabel
+@onready var role_label = %RoleLabel
 
 
 func _ready():
@@ -16,7 +15,6 @@ func _ready():
 
 func setup(character_data : CharacterData):
 	data = character_data
-	role_hint_label.text = data.role_name
 	refresh()
 
 
@@ -26,35 +24,30 @@ func refresh():
 
 
 func update_visuals():
-
-	match data.state:
-
-		CharacterData.State.FREE:
-			state_label.text = "Libre"
-		CharacterData.State.IMPRISONED:
-			state_label.text = "Encarcelado"
-		CharacterData.State.EXILED:
-			state_label.text = "Exiliado"
-
-	role_hint_label.text = data.role_name
+	if data.state == CharacterData.State.EXILED:
+		role_label.text = data.get_real_role_name()
+	else:
+		role_label.text = data.get_role_name()
 
 
 func update_style():
-	match data.state:
-
-		CharacterData.State.FREE:
-			modulate = Color.WHITE
-		CharacterData.State.IMPRISONED:
-			modulate = Color.YELLOW
-		CharacterData.State.EXILED:
-			modulate = Color.DIM_GRAY
+	if data.state == CharacterData.State.EXILED:
+		modulate = Color.DIM_GRAY
+	else:
+		modulate = Color.WHITE
 
 
 func _pressed():
+	if data.state == CharacterData.State.EXILED:
+		return
+
 	card_selected.emit(data)
 
 
 func _on_mouse_entered():
+	if data.state == CharacterData.State.EXILED:
+		return
+
 	scale = Vector2(1.05, 1.05)
 
 

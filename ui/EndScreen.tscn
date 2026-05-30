@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bocmjd4etaj3v"]
+
+[ext_resource type="Script" uid="uid://drtak62bl18sp" path="res://ui/end_screen.gd" id="1_iuj6g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuj6g"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.8166588, 0.3338889, 1.92523e-07, 0.7490196)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkj42"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(2.466575, 0.5967772, 0, 0.90000004)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys8tm"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 0.735357, 0.60038817, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="EndScreen" type="CanvasLayer" unique_id=940881169]
+visible = false
+script = ExtResource("1_iuj6g")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=613627495]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1665807407]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1982481681]
+custom_minimum_size = Vector2(300, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iuj6g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=967465435]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ResultLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1979454946]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=828252166]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkj42")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ys8tm")
+text = "Reintentar"
