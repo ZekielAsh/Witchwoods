@@ -11,7 +11,8 @@ enum InteractionMode {
 @onready var character_panel = $CharacterPanel
 
 @onready var bus : EventBus = $EventBus
-@onready var match_controller : MatchController = $MatchController
+@onready var match_controller = $MatchController
+@onready var match_generator = $MatchGenerator
 @onready var end_screen = $"../EndScreen"
 
 var card_scene = preload("res://cards/character_card.tscn")
@@ -30,29 +31,16 @@ func _ready():
 
 
 func create_test_match():
-	create_character(
-		CharacterData.Role.NAIVE,
-		CharacterData.Role.NAIVE,
-		CharacterData.Faction.TOWN
-	)
 
-	create_character(
-		CharacterData.Role.COUNSELOR,
-		CharacterData.Role.COUNSELOR,
-		CharacterData.Faction.TOWN
-	)
+	var generated_match = match_generator.generate_match()
 
-	create_character(
-		CharacterData.Role.LIBRARIAN,
-		CharacterData.Role.LIBRARIAN,
-		CharacterData.Faction.TOWN
-	)
+	for config in generated_match:
 
-	create_character(
-		CharacterData.Role.INFILTRATOR,
-		CharacterData.Role.COUNSELOR,
-		CharacterData.Faction.SABOTEUR
-	)
+		create_character(
+			config.real_role,
+			config.visible_role,
+			config.faction
+		)
 
 
 func create_character(

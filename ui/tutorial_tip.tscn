@@ -21,6 +21,7 @@ corner_radius_bottom_left = 12
 transparent_bg = false
 oversampling_override = 1.0
 size = Vector2i(500, 470)
+visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_vhqp2")
 script = ExtResource("1_vhqp2")
 
@@ -67,7 +68,7 @@ Hace click sobre los personajes para escuchar sus declaraciones.
 Los infiltrados imitan roles aldeanos y siempre mienten.
 
 [b]Derrota[/b]
-Si la cantidad de saboteadores es igual a la de aldeanos, perderas."
+Si exilias a dos aldeanos inocentes, perderas."
 horizontal_alignment = 1
 vertical_alignment = 1
 
