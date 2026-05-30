@@ -21,7 +21,6 @@ corner_radius_bottom_left = 12
 transparent_bg = false
 oversampling_override = 1.0
 size = Vector2i(500, 470)
-visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_vhqp2")
 script = ExtResource("1_vhqp2")
 

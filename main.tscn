@@ -55,11 +55,13 @@ script = ExtResource("4_1bvp3")
 
 [node name="TurnManager" type="Node" parent="GameManager" unique_id=1789292510]
 
-[node name="NpcContainer" type="HBoxContainer" parent="GameManager" unique_id=1172774858]
+[node name="NpcContainer" type="GridContainer" parent="GameManager" unique_id=353356098]
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-theme_override_constants/separation = 120
+theme_override_constants/h_separation = 80
+theme_override_constants/v_separation = 108
+columns = 4
 
 [node name="CharacterPanel" parent="GameManager" unique_id=1529179096 instance=ExtResource("2_0xm2m")]
 custom_minimum_size = Vector2(180, 120)

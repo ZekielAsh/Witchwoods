@@ -30,7 +30,7 @@ func resolve_naive(character : CharacterData) -> String:
 
 
 func resolve_counselor(character : CharacterData) -> String:
-	var neighbors = board.get_adjacent_characters(character)
+	var neighbors = board.get_neighbors(character)
 
 	var saboteur_count := 0
 

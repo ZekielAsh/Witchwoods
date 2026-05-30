@@ -5,46 +5,47 @@ extends Node
 
 
 func get_all_characters() -> Array[CharacterData]:
-	var characters : Array[CharacterData] = []
+	var result : Array[CharacterData] = []
 
 	for card in npc_container.get_children():
 		if card.data:
-			characters.append(card.data)
-
-	return characters
-
-
-func get_character_index(character : CharacterData) -> int:
-	var children = npc_container.get_children()
-
-	for i in range(children.size()):
-		var card = children[i]
-
-		if card.data == character:
-			return i
-
-	return -1
-
-
-func get_adjacent_characters(character : CharacterData) -> Array[CharacterData]:
-	var result : Array[CharacterData] = []
-
-	var children = npc_container.get_children()
-	var index = get_character_index(character)
-
-	if index == -1:
-		return result
-
-	if index > 0:
-		result.append(children[index - 1].data)
-
-	if index < children.size() - 1:
-		result.append(children[index + 1].data)
+			result.append(card.data)
 
 	return result
 
 
-func count_faction(faction : CharacterData.Faction) -> int:
+func get_character_at(pos : Vector2i) -> CharacterData:
+	for character in get_all_characters():
+		if character.board_position == pos:
+			return character
+
+	return null
+
+
+func get_neighbors(character : CharacterData) -> Array[CharacterData]:
+	var result : Array[CharacterData] = []
+
+	var directions = [
+		Vector2i.LEFT,
+		Vector2i.RIGHT,
+		Vector2i.UP,
+		Vector2i.DOWN
+	]
+
+	for direction in directions:
+
+		var neighbor = get_character_at(
+			character.board_position + direction
+		)
+
+		if neighbor:
+			result.append(neighbor)
+
+	return result
+
+
+func count_faction(faction : CharacterData.Faction):
+
 	var total := 0
 
 	for character in get_all_characters():
