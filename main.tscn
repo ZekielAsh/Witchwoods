@@ -29,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.9970783, 1.0005449)
+scale = Vector2(0.99996144, 0.99969745)
 texture = ExtResource("2_7mycd")
 expand_mode = 1
 
