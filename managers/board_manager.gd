@@ -1,7 +1,7 @@
 class_name BoardManager
 extends Node
 
-@onready var npc_container = $"../NpcContainer"
+@onready var npc_container = $"../MarginContainer/NpcContainer"
 
 
 func get_all_characters() -> Array[CharacterData]:
