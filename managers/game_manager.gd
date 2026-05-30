@@ -7,7 +7,7 @@ enum InteractionMode {
 	EXILE
 }
 
-@onready var npc_container = $NpcContainer
+@onready var npc_container = $MarginContainer/NpcContainer
 @onready var character_panel = $CharacterPanel
 
 @onready var bus : EventBus = $EventBus
