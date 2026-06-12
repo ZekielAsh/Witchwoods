@@ -1,240 +1,107 @@
 class_name MatchGenerator
 extends Node
 
+const TOWN_ROLES = [
+	CharacterData.Role.NAIVE,
+	CharacterData.Role.COUNSELOR,
+	CharacterData.Role.LIBRARIAN
+]
 
-func generate_match() -> Array:
+func generate_match(level : int = 1) -> Array:
 
-	var presets = [
-		create_preset_1(),
-		create_preset_2(),
-		create_preset_4(),
-		create_preset_5(),
-		create_preset_6(),
-		create_preset_7()
-	]
+	var match := create_random_match(level)
 
-	var selected = presets.pick_random()
+	InformationGenerator.generate(match)
 
-	selected.shuffle()
-
-	return selected
+	return match
 
 
-func create_preset_1() -> Array:
-	return [
-		make_character(
-			CharacterData.Role.NAIVE,
-			CharacterData.Role.NAIVE,
-			CharacterData.Faction.TOWN
-		),
+func create_random_match(level : int) -> Array:
 
-		make_character(
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.TOWN
-		),
+	var characters := []
 
-		make_character(
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.TOWN
-		),
+	var total_characters := get_character_count(level)
 
-		make_character(
-			CharacterData.Role.INFILTRATOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.SABOTEUR
+	var infiltrator_count := get_infiltrator_count(total_characters)
+
+	var town_count := total_characters - infiltrator_count
+
+	for i in range(town_count):
+
+		var role = TOWN_ROLES.pick_random()
+
+		characters.append(
+			make_character(
+				role,
+				role,
+				CharacterData.Faction.TOWN
+			)
 		)
-	]
 
-func create_preset_2() -> Array:
-	return [
-		make_character(
-			CharacterData.Role.NAIVE,
-			CharacterData.Role.NAIVE,
-			CharacterData.Faction.TOWN
-		),
+	for i in range(infiltrator_count):
 
-		make_character(
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.TOWN
-		),
+		var fake_role = TOWN_ROLES.pick_random()
 
-		make_character(
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.INFILTRATOR,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.SABOTEUR
+		characters.append(
+			make_character(
+				CharacterData.Role.INFILTRATOR,
+				fake_role,
+				CharacterData.Faction.SABOTEUR
+			)
 		)
+
+	characters.shuffle()
+
+	for i in range(characters.size()):
+		characters[i].character_id = i
+
+	assign_positions(characters)
+
+	return characters
+
+
+func assign_positions(
+	characters : Array
+) -> void:
+
+	for i in range(characters.size()):
+
+		characters[i].board_position = Vector2i(i, 0)
+
+
+func get_character_count(level : int) -> int:
+
+	var options = [
+		4,
+		5,
+		6,
+		7,
+		8
 	]
 
-func create_preset_4() -> Array:
-	return [
-		make_character(
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.TOWN
-		),
+	return options.pick_random()
 
-		make_character(
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.TOWN
-		),
 
-		make_character(
-			CharacterData.Role.INFILTRATOR,
-			CharacterData.Role.NAIVE,
-			CharacterData.Faction.SABOTEUR
-		),
+func get_infiltrator_count(
+	character_count : int
+) -> int:
 
-		make_character(
-			CharacterData.Role.INFILTRATOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.SABOTEUR
-		)
-	]
+	if character_count >= 6:
+		return 2
 
-func create_preset_5() -> Array:
-	return [
-		make_character(
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.TOWN
-		),
+	return 1
 
-		make_character(
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.TOWN
-		),
 
-		make_character(
-			CharacterData.Role.NAIVE,
-			CharacterData.Role.NAIVE,
-			CharacterData.Faction.TOWN
-		),
+func make_character(
+	real_role,
+	visible_role,
+	faction
+) -> CharacterData:
 
-		make_character(
-			CharacterData.Role.NAIVE,
-			CharacterData.Role.NAIVE,
-			CharacterData.Faction.TOWN
-		),
+	var character = CharacterData.new()
 
-		make_character(
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.TOWN
-		),
+	character.real_role = real_role
+	character.visible_role = visible_role
+	character.faction = faction
 
-		make_character(
-			CharacterData.Role.INFILTRATOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.SABOTEUR
-		)
-	]
-
-func create_preset_6() -> Array:
-	return [
-		make_character(
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.NAIVE,
-			CharacterData.Role.NAIVE,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.NAIVE,
-			CharacterData.Role.NAIVE,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.INFILTRATOR,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.SABOTEUR
-		)
-	]
-
-func create_preset_7() -> Array:
-	return [
-		make_character(
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.NAIVE,
-			CharacterData.Role.NAIVE,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.NAIVE,
-			CharacterData.Role.NAIVE,
-			CharacterData.Faction.TOWN
-		),
-
-		make_character(
-			CharacterData.Role.INFILTRATOR,
-			CharacterData.Role.COUNSELOR,
-			CharacterData.Faction.SABOTEUR
-		),
-
-		make_character(
-			CharacterData.Role.INFILTRATOR,
-			CharacterData.Role.LIBRARIAN,
-			CharacterData.Faction.SABOTEUR
-		)
-	]
-
-func make_character(real_role, visible_role, faction):
-
-	return {
-		"real_role": real_role,
-		"visible_role": visible_role,
-		"faction": faction,
-		"position": Vector2i.ZERO
-	}
+	return character

@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://bdl5wngj2ea03" path="res://managers/game_manager.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://fg77ty4cmbd4" path="res://managers/stability_system.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://rpt0qubms3ox" path="res://managers/match_controller.gd" id="5_lquwl"]
-[ext_resource type="Script" uid="uid://b4o008li2hg86" path="res://systems/role_info_resolver.gd" id="8_4c57u"]
 [ext_resource type="Script" uid="uid://cgjw4mfkcdlrg" path="res://managers/event_bus.gd" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://dsj5ty7php7bw" path="res://match/match_generator.gd" id="8_dg77c"]
 [ext_resource type="Script" uid="uid://bd252rfyye1oy" path="res://managers/board_manager.gd" id="9_efxa6"]
@@ -44,9 +43,6 @@ script = ExtResource("5_lquwl")
 
 [node name="BoardManager" type="Node" parent="GameManager" unique_id=1888338599]
 script = ExtResource("9_efxa6")
-
-[node name="RoleInfoResolver" type="Node" parent="GameManager" unique_id=199721323]
-script = ExtResource("8_4c57u")
 
 [node name="MatchGenerator" type="Node" parent="GameManager" unique_id=934120253]
 script = ExtResource("8_dg77c")

@@ -24,7 +24,9 @@ enum Role {
 
 var state : State = State.FREE
 var board_position : Vector2i
+var statement : String
 
+var character_id : int
 
 func get_role_name() -> String:
 	match visible_role:
