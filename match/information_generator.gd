@@ -11,7 +11,7 @@ static func generate(match : Array) -> void:
 			CharacterData.Role.CHRONICLER: generate_chronicler(character, match)
 			CharacterData.Role.INVESTIGATOR: generate_investigator(character, match)
 			CharacterData.Role.ORACLE: generate_oracle(character, match)
-			CharacterData.Role.WATCHMAN: generate_watchman(character, match)
+			CharacterData.Role.JUDGE: generate_judge(character, match)
 
 
 static func generate_naive(character):
@@ -80,8 +80,8 @@ static func generate_oracle(character, match):
 	else:
 		character.statement = ("La cantidad de saboteadores es impar")
 
-static func generate_watchman(character, match):
-	var candidates = get_watchman_candidates(character, match)
+static func generate_judge(character, match):
+	var candidates = get_judge_candidates(character, match)
 	if candidates.is_empty():
 		character.statement = "No confío en nadie"
 		return
@@ -152,7 +152,7 @@ static func format_saboteurs(count : int) -> String:
 	if count == 1: return "1 saboteador"
 	return "%d saboteadores" % count
 
-static func get_watchman_candidates(character, match) -> Array:
+static func get_judge_candidates(character, match) -> Array:
 	var candidates := []
 	if character.faction == CharacterData.Faction.TOWN:
 		for other in match:

@@ -10,8 +10,10 @@ enum Role {
 	CHRONICLER,
 	INVESTIGATOR,
 	ORACLE,
-	WATCHMAN,
-	INFILTRATOR
+	JUDGE,
+	MIME,
+	INFILTRATOR,
+	ACTOR
 }
 
 @export var real_role : Role
@@ -25,14 +27,16 @@ var character_id : int
 
 func get_role_name() -> String:
 	match visible_role:
-		Role.NAIVE: return "Ingenuo"
-		Role.COUNSELOR: return "Consejero"
-		Role.LIBRARIAN: return "Bibliotecario"
-		Role.CHRONICLER: return "Cronista"
-		Role.INVESTIGATOR: return "Investigador"
-		Role.ORACLE: return "Oráculo"
-		Role.WATCHMAN: return "Vigilante"
-		Role.INFILTRATOR: return "Infiltrado"
+		Role.NAIVE: 		return "Ingenuo"
+		Role.COUNSELOR: 	return "Consejero"
+		Role.LIBRARIAN: 	return "Bibliotecario"
+		Role.CHRONICLER: 	return "Cronista"
+		Role.INVESTIGATOR: 	return "Investigador"
+		Role.ORACLE: 		return "Oráculo"
+		Role.JUDGE: 		return "Juez"
+		Role.MIME: 			return "Mimo"
+		Role.INFILTRATOR: 	return "Infiltrado"
+		Role.ACTOR: 		return "Actor"
 	return "Desconocido"
 
 
@@ -44,6 +48,8 @@ func get_real_role_name() -> String:
 		Role.CHRONICLER: 	return "Cronista"
 		Role.INVESTIGATOR: 	return "Investigador"
 		Role.ORACLE: 		return "Oráculo"
-		Role.WATCHMAN: 		return "Vigilante"
+		Role.JUDGE: 		return "Juez"
+		Role.MIME: 			return "Mimo"
 		Role.INFILTRATOR: 	return "Infiltrado"
+		Role.ACTOR: 		return "Actor"
 	return "Desconocido"

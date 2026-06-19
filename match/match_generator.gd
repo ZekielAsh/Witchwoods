@@ -8,7 +8,8 @@ const TOWN_ROLES = [
 	CharacterData.Role.CHRONICLER,
 	CharacterData.Role.INVESTIGATOR,
 	CharacterData.Role.ORACLE,
-	CharacterData.Role.WATCHMAN
+	CharacterData.Role.JUDGE,
+	CharacterData.Role.MIME
 ]
 
 func generate_match(level : int = 1) -> Array:
@@ -20,21 +21,39 @@ func generate_match(level : int = 1) -> Array:
 func create_random_match(level : int) -> Array:
 	var characters := []
 	var total_characters := get_character_count(level)
-	var infiltrator_count := get_infiltrator_count(total_characters)
-	var town_count := total_characters - infiltrator_count
+	var saboteur_count := get_saboteur_count(total_characters)
+	var town_count := total_characters - saboteur_count
 	
 	var available_roles = TOWN_ROLES.duplicate()
-	if total_characters < 6: available_roles.erase(CharacterData.Role.WATCHMAN)
-	
+	if total_characters < 6: available_roles.erase(CharacterData.Role.JUDGE)
+
+	available_roles.shuffle()
 	for i in range(town_count):
-		var role = available_roles.pick_random()
-		characters.append(make_character(role, role,CharacterData.Faction.TOWN))
-	for i in range(infiltrator_count):
-		var fake_role = available_roles.pick_random()
-		characters.append(make_character(
-			CharacterData.Role.INFILTRATOR, 
-			fake_role, 
+		var role = available_roles.pop_front()
+		characters.append(
+			make_character(role, role, CharacterData.Faction.TOWN))
+	
+	var present_roles := []
+	for character in characters:
+		if character.faction == CharacterData.Faction.TOWN:
+			present_roles.append(character.visible_role)
+	var absent_roles := []
+	for role in available_roles:
+		if !present_roles.has(role): absent_roles.append(role)
+	
+	present_roles.erase(CharacterData.Role.MIME)
+	absent_roles.erase(CharacterData.Role.MIME)
+	characters.append(make_character(
+			CharacterData.Role.INFILTRATOR,
+			absent_roles.pick_random(),
 			CharacterData.Faction.SABOTEUR))
+	if saboteur_count >= 2:
+		characters.append(make_character(
+			CharacterData.Role.ACTOR,
+			present_roles.pick_random(),
+			CharacterData.Faction.SABOTEUR))
+	
+	configure_mime(characters)
 	characters.shuffle()
 	for i in range(characters.size()): characters[i].character_id = i + 1
 	assign_positions(characters)
@@ -64,7 +83,7 @@ func get_character_count(level : int) -> int:
 	return options.pick_random()
 
 
-func get_infiltrator_count(character_count : int) -> int:
+func get_saboteur_count(character_count : int) -> int:
 	if character_count >= 6: return 2
 	return 1
 
@@ -75,3 +94,21 @@ func make_character(real_role, visible_role, faction) -> CharacterData:
 	character.visible_role = visible_role
 	character.faction = faction
 	return character
+	
+func configure_mime(characters : Array) -> void:
+	var mime = null
+	for character in characters:
+		if character.real_role == CharacterData.Role.MIME:
+			mime = character
+			break
+	if mime == null: return
+	
+	var candidates := []
+	for character in characters:
+		if character == mime: continue
+		if character.faction != CharacterData.Faction.TOWN: continue
+		candidates.append(character)
+	if candidates.is_empty(): return
+
+	var target = candidates.pick_random()
+	mime.visible_role = target.visible_role
