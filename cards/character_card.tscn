@@ -11,9 +11,14 @@ mouse_default_cursor_shape = 2
 script = ExtResource("1_08o8e")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1725088076]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 250.0
+grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=434921752]
 layout_mode = 2
@@ -25,8 +30,20 @@ texture = ExtResource("2_wrcus")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RoleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=265871828]
+[node name="IDLabel" type="Label" parent="MarginContainer/VBoxContainer/CardImage" unique_id=1734571658]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+
+[node name="RoleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardImage" unique_id=265871828]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 227.0
+offset_right = 179.0
+offset_bottom = 250.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
+horizontal_alignment = 1

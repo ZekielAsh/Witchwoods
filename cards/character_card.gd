@@ -5,6 +5,7 @@ signal card_selected(character : CharacterData)
 
 var data : CharacterData
 
+@onready var id_label = %IDLabel
 @onready var role_label = %RoleLabel
 
 
@@ -24,6 +25,7 @@ func refresh():
 
 
 func update_visuals():
+	id_label.text = "#%d"  % data.character_id
 	if data.state == CharacterData.State.EXILED:
 		role_label.text = data.get_real_role_name()
 	else:

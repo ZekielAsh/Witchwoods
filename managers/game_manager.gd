@@ -31,15 +31,12 @@ func _ready():
 
 
 func configure_board_layout(character_count : int):
-
-	if character_count <= 4:
-		npc_container.columns = 4
-
-	elif character_count <= 6:
-		npc_container.columns = 3
-
-	else:
-		npc_container.columns = 4
+	match character_count:
+		4: npc_container.columns = 4
+		5: npc_container.columns = 3
+		6: npc_container.columns = 3
+		7: npc_container.columns = 4
+		8: npc_container.columns = 4
 
 
 func create_test_match():
