@@ -14,6 +14,7 @@ enum InteractionMode {
 @onready var match_controller = $MatchController
 @onready var match_generator = $MatchGenerator
 @onready var end_screen = $"../EndScreen"
+@onready var audio = $"../AudioManager"
 
 var card_scene = preload("res://cards/character_card.tscn")
 var current_mode := InteractionMode.NONE
@@ -23,7 +24,7 @@ func _ready():
 	bus.character_selected.connect(_on_character_selected)
 	bus.game_won.connect(_on_game_won)
 	bus.game_lost.connect(_on_game_lost)
-
+	
 	create_test_match()
 
 func configure_board_layout(character_count : int):

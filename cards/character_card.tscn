@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ch5se1kx7vmg1"]
 
 [ext_resource type="Script" uid="uid://bm4avof6w6lm0" path="res://cards/character_card.gd" id="1_08o8e"]
+[ext_resource type="Texture2D" uid="uid://fcxlhg8t267v" path="res://assets/textures/details/Background.png" id="2_evts0"]
 [ext_resource type="Texture2D" uid="uid://1urv2jdeqc7j" path="res://assets/textures/Trapper.jpg" id="2_wrcus"]
+[ext_resource type="Texture2D" uid="uid://t4mbb355a5tt" path="res://assets/textures/details/borders.png" id="4_tmor7"]
 
 [node name="CharacterCard" type="Button" unique_id=87994109]
 custom_minimum_size = Vector2(120, 180)
@@ -17,8 +19,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -90.0
 offset_right = 90.0
-offset_bottom = 250.0
+offset_bottom = 270.0
 grow_horizontal = 2
+theme_override_constants/margin_top = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=434921752]
 layout_mode = 2
@@ -28,7 +31,34 @@ custom_minimum_size = Vector2(180, 250)
 layout_mode = 2
 texture = ExtResource("2_wrcus")
 expand_mode = 1
+
+[node name="Frame" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage" unique_id=1979751825]
+custom_minimum_size = Vector2(200, 270)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -6.0000005
+offset_right = -3.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.031968, 1.0064672)
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_evts0")
 stretch_mode = 5
+
+[node name="Borders" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=486494847]
+layout_mode = 0
+offset_left = 1.9380443
+offset_top = -4.9678717
+offset_right = 196.93805
+offset_bottom = 279.03214
+scale = Vector2(0.99993867, 0.972628)
+texture = ExtResource("4_tmor7")
+expand_mode = 1
 
 [node name="IDLabel" type="Label" parent="MarginContainer/VBoxContainer/CardImage" unique_id=1734571658]
 unique_name_in_owner = true
@@ -43,9 +73,9 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -1.0
-offset_top = 227.0
+offset_top = 196.0
 offset_right = 179.0
-offset_bottom = 250.0
+offset_bottom = 219.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 horizontal_alignment = 1

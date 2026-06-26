@@ -20,15 +20,15 @@ func _ready():
 	)
 
 	exile_button.tooltip_text = (
-		"Activa el modo exilio para expulsar un personaje."
+		"Activa el modo de captura. Luego selecciona al personaje que creas que es un Saboteador."
 	)
 
 	help_button.tooltip_text = (
-		"Aprende cómo jugar."
+		"Consulta las reglas y el objetivo de la investigación."
 	)
 
 	mode_label.tooltip_text = (
-		"Indica el modo de interacción actual."
+		"Muestra si estás investigando o intentando capturar a un sospechoso."
 	)
 
 	await get_tree().process_frame
@@ -57,12 +57,12 @@ func _on_interaction_mode_changed(mode : int):
 	match mode:
 
 		GameManager.InteractionMode.NONE:
-			mode_label.text = "Modo: Inspección"
-			exile_button.text = "Exiliar"
+			mode_label.text = "Investigando..."
+			exile_button.text = "Capturar sospechoso"
 
 		GameManager.InteractionMode.EXILE:
-			mode_label.text = "Modo: Exilio"
-			exile_button.text = "Cancelar"
+			mode_label.text = "Selecciona al sospechoso."
+			exile_button.text = "Cancelar captura"
 
 
 func _on_help_button_pressed() -> void:

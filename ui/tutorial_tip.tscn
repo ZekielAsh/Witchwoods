@@ -57,17 +57,27 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[b]Objetivo[/b]
-Encuentra y exilia a todos los saboteadores.
+text = "[b]Tu misión[/b]
 
-[b]Cómo obtener pistas[/b]
-Hace click sobre los personajes para escuchar sus declaraciones.
+Descubre y captura a todos los [color=#D35A5A]Saboteadores[/color] ocultos en la aldea antes de acusar a demasiados [color=#69C36B]Aldeanos[/color] inocentes.
+
+[b]Cómo investigar[/b]
+
+Haz clic sobre un personaje para escuchar su declaración. Cada rol conoce información distinta, pero los Saboteadores siempre intentarán engañarte.
+
+[b]Vecinos[/b]
+
+Cuando un personaje habla de sus \"vecinos\", se refiere únicamente a los personajes ubicados inmediatamente arriba, abajo, a la izquierda o a la derecha en el tablero.
 
 [b]Cuidado[/b]
-Los infiltrados imitan roles aldeanos y siempre mienten.
+
+Los Infiltrados se hacen pasar por roles aldeanos y todas sus declaraciones son falsas.
 
 [b]Derrota[/b]
-Si exilias a dos aldeanos inocentes, perderas."
+
+Si capturas por error a dos [color=#69C36B]Aldeanos[/color], los [color=#D35A5A]Saboteadores[/color] escaparán y perderás la partida.
+
+[i]Consejo:[/i] No tomes una decisión por una sola declaración. Compara la información de varios personajes antes de capturar a un sospechoso."
 horizontal_alignment = 1
 vertical_alignment = 1
 

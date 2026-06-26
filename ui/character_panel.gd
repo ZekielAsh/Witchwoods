@@ -18,7 +18,7 @@ func display_character(character : CharacterData):
 		role_label.text = character.get_real_role_name()
 	else:
 		role_label.text = character.get_role_name()
-	information_label.text = character.statement
+	information_label.text = InformationFormatter.format(character.statement)
 
 func get_state_text(state : CharacterData.State):
 	match state:

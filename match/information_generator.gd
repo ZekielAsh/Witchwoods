@@ -16,21 +16,21 @@ static func generate(match : Array) -> void:
 
 static func generate_naive(character):
 	if character.faction == CharacterData.Faction.TOWN:
-		character.statement = "Soy un aldeano"
+		character.statement = "Pueden confiar en mí. Soy un Aldeano."
 	else:
-		character.statement = "No quiero contarte"
+		character.statement = "No quiero contarte."
 
 static func generate_librarian(character, match):
 	var infiltrators := count_infiltrators(match)
 	if character.faction == CharacterData.Faction.TOWN:
 		character.statement = (
-			"Hay %s en la aldea"
+			"He contado %s en la aldea."
 			% format_saboteurs(infiltrators)
 		)
 	else:
 		var lie = generate_fake_number(infiltrators, 0, match.size())
 		character.statement = (
-			"Hay %s en la aldea"
+			"He contado %s en la aldea."
 			% format_saboteurs(lie)
 		)
 
@@ -38,13 +38,13 @@ static func generate_counselor(character, match):
 	var nearby = count_adjacent_infiltrators(character, match)
 	if character.faction == CharacterData.Faction.TOWN:
 		character.statement = (
-			"Tengo %s cerca"
+			"Entre mis vecinos inmediatos hay %s."
 			% format_saboteurs(nearby)
 		)
 	else:
 		var lie = generate_fake_number(nearby, 0, 2)
 		character.statement = (
-			"Tengo %s cerca"
+			"Entre mis vecinos inmediatos hay %s."
 			% format_saboteurs(lie)
 		)
 
@@ -53,20 +53,20 @@ static func generate_chronicler(character, match):
 	if character.faction != CharacterData.Faction.TOWN: 
 		same_faction = !same_faction 
 		
-	if same_faction: character.statement = "Mis vecinos pertenecen a la misma facción" 
-	else: character.statement = "Mis vecinos pertenecen a facciones distintas"
+	if same_faction: character.statement = "Todos mis vecinos son del mismo bando." 
+	else: character.statement = "Entre mis vecinos hay Aldeanos y Saboteadores."
 
 static func generate_investigator(character, match):
 	var villagers = count_villagers(match)
 	if character.faction == CharacterData.Faction.TOWN:
 		character.statement = (
-			"Hay %d aldeanos"
+			"He identificado %d Aldeanos."
 			% villagers
 		)
 	else:
 		var lie = generate_fake_number(villagers, 0, match.size())
 		character.statement = (
-			"Hay %d aldeanos"
+			"He identificado %d Aldeanos."
 			% lie
 		)
 
@@ -76,18 +76,18 @@ static func generate_oracle(character, match):
 	if character.faction != CharacterData.Faction.TOWN:
 		is_even = !is_even
 	if is_even:
-		character.statement = ("La cantidad de saboteadores es par")
+		character.statement = ("Puedo divinar que los Saboteadores forman un grupo par.")
 	else:
-		character.statement = ("La cantidad de saboteadores es impar")
+		character.statement = ("Puedo divinar que los Saboteadores forman un grupo impar.")
 
 static func generate_judge(character, match):
 	var candidates = get_judge_candidates(character, match)
 	if candidates.is_empty():
-		character.statement = "No confío en nadie"
+		character.statement = "Todos son culpables."
 		return
 	var target = candidates.pick_random()
 	character.statement = (
-		"Confío en el personaje #%d"
+		"Considero inocente al personaje #%d."
 		% target.character_id)
 
 
@@ -148,9 +148,9 @@ static func generate_fake_number(real_value : int, min_value : int, max_value : 
 	return options.pick_random()
 
 static func format_saboteurs(count : int) -> String:
-	if count == 0: return "solo aldeanos"
-	if count == 1: return "1 saboteador"
-	return "%d saboteadores" % count
+	if count == 0: return "solo Aldeanos"
+	if count == 1: return "1 Saboteador"
+	return "%d Saboteadores" % count
 
 static func get_judge_candidates(character, match) -> Array:
 	var candidates := []

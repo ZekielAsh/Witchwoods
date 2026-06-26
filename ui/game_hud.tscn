@@ -52,7 +52,7 @@ anchor_right = 1.0
 offset_left = -78.0
 offset_bottom = 31.0
 grow_horizontal = 0
-text = "Consejos"
+text = "Tutorial de juego"
 
 [node name="TutorialTip" parent="." unique_id=1491652203 instance=ExtResource("3_5bps4")]
 
