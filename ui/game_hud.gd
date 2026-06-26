@@ -24,7 +24,7 @@ func _ready():
 	)
 
 	help_button.tooltip_text = (
-		"Consulta las reglas y el objetivo de la investigación."
+		"Consulta las condiciones y el objetivo de la investigación."
 	)
 
 	mode_label.tooltip_text = (

@@ -2,7 +2,7 @@ class_name MatchGenerator
 extends Node
 
 const TOWN_ROLES = [
-	CharacterData.Role.NAIVE,
+	#CharacterData.Role.NAIVE,
 	CharacterData.Role.COUNSELOR,
 	CharacterData.Role.LIBRARIAN,
 	CharacterData.Role.CHRONICLER,

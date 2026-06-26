@@ -5,7 +5,7 @@ extends RefCounted
 static func generate(match : Array) -> void:
 	for character in match:
 		match character.visible_role:
-			CharacterData.Role.NAIVE: generate_naive(character)
+			#CharacterData.Role.NAIVE: generate_naive(character)
 			CharacterData.Role.COUNSELOR: generate_counselor(character, match)
 			CharacterData.Role.LIBRARIAN: generate_librarian(character, match)
 			CharacterData.Role.CHRONICLER: generate_chronicler(character, match)

@@ -3,13 +3,16 @@
 [ext_resource type="Script" uid="uid://bm4avof6w6lm0" path="res://cards/character_card.gd" id="1_08o8e"]
 [ext_resource type="Texture2D" uid="uid://fcxlhg8t267v" path="res://assets/textures/details/Background.png" id="2_evts0"]
 [ext_resource type="Texture2D" uid="uid://1urv2jdeqc7j" path="res://assets/textures/Trapper.jpg" id="2_wrcus"]
+[ext_resource type="Texture2D" uid="uid://u3t355gdbkkl" path="res://assets/textures/details/tape.png" id="4_6mhq2"]
 [ext_resource type="Texture2D" uid="uid://t4mbb355a5tt" path="res://assets/textures/details/borders.png" id="4_tmor7"]
+[ext_resource type="Texture2D" uid="uid://bd1lcxm1gbhjd" path="res://assets/textures/details/paper_shadow.png" id="5_wig56"]
 
 [node name="CharacterCard" type="Button" unique_id=87994109]
-custom_minimum_size = Vector2(120, 180)
+custom_minimum_size = Vector2(133, 200)
 offset_right = 180.0
 offset_bottom = 320.0
 mouse_default_cursor_shape = 2
+button_mask = 5
 script = ExtResource("1_08o8e")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1725088076]
@@ -50,6 +53,15 @@ mouse_default_cursor_shape = 2
 texture = ExtResource("2_evts0")
 stretch_mode = 5
 
+[node name="Crown" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=18246434]
+layout_mode = 0
+offset_left = 6.783156
+offset_top = -2.9807224
+offset_right = 187.78316
+offset_bottom = 127.01928
+scale = Vector2(1.0376344, 0.875)
+texture = ExtResource("4_6mhq2")
+
 [node name="Borders" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=486494847]
 layout_mode = 0
 offset_left = 1.9380443
@@ -60,11 +72,21 @@ scale = Vector2(0.99993867, 0.972628)
 texture = ExtResource("4_tmor7")
 expand_mode = 1
 
+[node name="Paper" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=1379361726]
+layout_mode = 0
+offset_left = 25.19458
+offset_top = 192.75342
+offset_right = 204.19458
+offset_bottom = 277.75342
+scale = Vector2(0.8526277, 0.76839757)
+texture = ExtResource("5_wig56")
+
 [node name="IDLabel" type="Label" parent="MarginContainer/VBoxContainer/CardImage" unique_id=1734571658]
 unique_name_in_owner = true
 layout_mode = 0
+offset_top = 228.0
 offset_right = 180.0
-offset_bottom = 23.0
+offset_bottom = 251.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 horizontal_alignment = 1

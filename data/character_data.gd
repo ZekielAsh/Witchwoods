@@ -4,7 +4,7 @@ extends Resource
 enum Faction {TOWN, SABOTEUR}
 enum State {FREE, EXILED}
 enum Role {
-	NAIVE,
+	#NAIVE,
 	COUNSELOR,
 	LIBRARIAN,
 	CHRONICLER,
@@ -27,7 +27,7 @@ var character_id : int
 
 func get_role_name() -> String:
 	match visible_role:
-		Role.NAIVE: 		return "Ingenuo"
+		#Role.NAIVE: 		return "Ingenuo"
 		Role.COUNSELOR: 	return "Consejero"
 		Role.LIBRARIAN: 	return "Bibliotecario"
 		Role.CHRONICLER: 	return "Cronista"
@@ -42,7 +42,7 @@ func get_role_name() -> String:
 
 func get_real_role_name() -> String:
 	match real_role:
-		Role.NAIVE: 		return "Ingenuo"
+		#Role.NAIVE: 		return "Ingenuo"
 		Role.COUNSELOR: 	return "Consejero"
 		Role.LIBRARIAN: 	return "Bibliotecario"
 		Role.CHRONICLER: 	return "Cronista"
