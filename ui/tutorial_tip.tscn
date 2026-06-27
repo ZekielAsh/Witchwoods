@@ -85,4 +85,5 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+mouse_default_cursor_shape = 2
 text = "Cerrar"

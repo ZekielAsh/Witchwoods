@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Witchwoods"
 run/main_scene="uid://dfc6w04b2hq2f"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
