@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ch5se1kx7vmg1"]
 
 [ext_resource type="Script" uid="uid://bm4avof6w6lm0" path="res://cards/character_card.gd" id="1_08o8e"]
-[ext_resource type="Texture2D" uid="uid://fcxlhg8t267v" path="res://assets/textures/details/Background.png" id="2_evts0"]
 [ext_resource type="Texture2D" uid="uid://1urv2jdeqc7j" path="res://assets/textures/Trapper.jpg" id="2_wrcus"]
+[ext_resource type="Texture2D" uid="uid://ru5yjajxi36i" path="res://assets/textures/details/Civilian_card_version2.png" id="3_6mhq2"]
 [ext_resource type="Texture2D" uid="uid://u3t355gdbkkl" path="res://assets/textures/details/tape.png" id="4_6mhq2"]
 [ext_resource type="Texture2D" uid="uid://t4mbb355a5tt" path="res://assets/textures/details/borders.png" id="4_tmor7"]
 [ext_resource type="Texture2D" uid="uid://bd1lcxm1gbhjd" path="res://assets/textures/details/paper_shadow.png" id="5_wig56"]
@@ -50,10 +50,11 @@ grow_vertical = 2
 scale = Vector2(1.031968, 1.0064672)
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-texture = ExtResource("2_evts0")
+texture = ExtResource("3_6mhq2")
 stretch_mode = 5
 
 [node name="Crown" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=18246434]
+visible = false
 layout_mode = 0
 offset_left = 6.783156
 offset_top = -2.9807224
@@ -63,6 +64,7 @@ scale = Vector2(1.0376344, 0.875)
 texture = ExtResource("4_6mhq2")
 
 [node name="Borders" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=486494847]
+visible = false
 layout_mode = 0
 offset_left = 1.9380443
 offset_top = -4.9678717
@@ -73,6 +75,7 @@ texture = ExtResource("4_tmor7")
 expand_mode = 1
 
 [node name="Paper" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=1379361726]
+visible = false
 layout_mode = 0
 offset_left = 25.19458
 offset_top = 192.75342

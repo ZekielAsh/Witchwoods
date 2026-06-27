@@ -21,6 +21,7 @@ corner_radius_bottom_left = 12
 transparent_bg = false
 oversampling_override = 1.0
 size = Vector2i(500, 470)
+visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_vhqp2")
 script = ExtResource("1_vhqp2")
 
@@ -63,7 +64,7 @@ Descubre y captura a todos los [color=#D35A5A]Saboteadores[/color] ocultos en la
 
 [b]Cómo investigar[/b]
 
-Haz clic sobre un personaje para escuchar su declaración. Cada rol conoce información distinta, pero los Saboteadores siempre intentarán engañarte.
+Haz clic sobre un personaje para escuchar su declaración. Cada rol conoce información distinta, pero los [color=#D35A5A]Saboteadores[/color] siempre intentarán engañarte.
 
 [b]Vecinos[/b]
 
@@ -71,7 +72,7 @@ Cuando un personaje habla de sus \"vecinos\", se refiere únicamente a los perso
 
 [b]Cuidado[/b]
 
-Los Infiltrados se hacen pasar por roles aldeanos y todas sus declaraciones son falsas.
+Los [color=#D35A5A]Saboteadores[/color] se hacen pasar por roles [color=#69C36B]Aldeanos[/color] y todas sus declaraciones son falsas.
 
 [b]Derrota[/b]
 
