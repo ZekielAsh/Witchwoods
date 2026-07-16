@@ -1,16 +1,20 @@
 class_name CharacterCard
 extends Button
 
-signal card_selected(character : CharacterData)
+@onready var bus : EventBus = $"../../EventBus"
+
 var data : CharacterData
 var reveal_mode := false
 
 @onready var id_label = %IDLabel
 @onready var role_label = %RoleLabel
 
+
 func _ready():
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	
+	bus.character_exiled.connect(_on_character_exiled)
 
 func setup(character_data : CharacterData):
 	data = character_data
@@ -43,7 +47,7 @@ func _pressed():
 	if data.state == CharacterData.State.EXILED:
 		return
 
-	card_selected.emit(data)
+	bus.character_selected.emit(data)
 
 func _on_mouse_entered():
 	if data.state == CharacterData.State.EXILED:
@@ -53,3 +57,11 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	scale = Vector2.ONE
+
+func _exit_tree():
+	if bus.character_exiled.is_connected(_on_character_exiled):
+		bus.character_exiled.disconnect(_on_character_exiled)
+
+func _on_character_exiled(character : CharacterData):
+	if character == data:
+		refresh()

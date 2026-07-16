@@ -25,42 +25,40 @@ func _ready():
 	bus.game_won.connect(_on_game_won)
 	bus.game_lost.connect(_on_game_lost)
 	
+	end_screen.retry_requested.connect(_restart_game)
+	end_screen.reveal_requested.connect(_on_reveal_requested)
+	
+func start_game():
+	game_finished = false
+	set_mode(InteractionMode.NONE)
+
+	clear_board()
+	match_controller.reset()
+	await get_tree().process_frame
+
 	create_test_match()
+	
+	print("Listeners:", bus.character_exiled.get_connections().size())
+
+func clear_board():
+	for child in npc_container.get_children():
+		child.queue_free()
 
 func configure_board_layout(character_count : int):
 	match character_count:
 		4: npc_container.columns = 4
-		5: npc_container.columns = 3
 		6: npc_container.columns = 3
-		7: npc_container.columns = 4
 		8: npc_container.columns = 4
 
 func create_test_match():
-
 	var generated_match = match_generator.generate_match()
-
-	configure_board_layout(
-		generated_match.size()
-	)
+	configure_board_layout(generated_match.size())
 
 	for character in generated_match:
-
 		var card : CharacterCard = card_scene.instantiate()
-
 		npc_container.add_child(card)
 
 		card.setup(character)
-
-		card.card_selected.connect(
-			_on_card_selected
-		)
-
-		bus.character_exiled.connect(
-			func(exiled_character):
-
-				if exiled_character == card.data:
-					card.refresh()
-		)
 
 func set_mode(mode):
 	current_mode = mode
@@ -73,12 +71,6 @@ func clear_mode():
 func reveal_all_cards():
 	for card in npc_container.get_children():
 		if card is CharacterCard: card.reveal()
-
-func _on_card_selected(character : CharacterData):
-	if game_finished:
-		character_panel.display_character(character)
-		return
-	bus.character_selected.emit(character)
 
 func _on_character_selected(character : CharacterData):
 	match current_mode:
@@ -99,7 +91,8 @@ func _on_game_lost():
 	end_screen.show_defeat()
 
 func _restart_game():
-	get_tree().reload_current_scene()
+	end_screen.visible = false
+	start_game()
 
 func _on_reveal_requested():
 	character_panel.set_reveal_mode()

@@ -65,9 +65,7 @@ func assign_positions(characters : Array) -> void:
 	var columns := 4
 	match count:
 		4: columns = 4
-		5: columns = 3
 		6: columns = 3
-		7: columns = 4
 		8: columns = 4
 
 	for i in range(count):
@@ -79,7 +77,7 @@ func assign_positions(characters : Array) -> void:
 
 
 func get_character_count(level : int) -> int:
-	var options = [4, 5, 6, 7, 8]
+	var options = [4, 6, 8]
 	return options.pick_random()
 
 

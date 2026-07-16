@@ -1,13 +1,11 @@
 extends CanvasLayer
 
 @onready var game_manager : GameManager = $"../GameManager"
+@onready var tutorial_tip : TutorialTip = $"../TutorialTip"
 
 @onready var exile_button = %ExileButton
 @onready var mode_label = $ModeLabel
-@onready var tutorial_tip = $TutorialTip
 @onready var help_button = $HelpButton
-
-var tutorial_shown := false
 
 
 func _ready():
@@ -30,17 +28,6 @@ func _ready():
 	mode_label.tooltip_text = (
 		"Muestra si estás investigando o intentando capturar a un sospechoso."
 	)
-
-	await get_tree().process_frame
-	
-	if not get_tree().has_meta("tutorial_shown"):
-
-		tutorial_tip.open()
-
-		get_tree().set_meta(
-			"tutorial_shown",
-			true
-		)
 
 
 func _on_exile_button_pressed():

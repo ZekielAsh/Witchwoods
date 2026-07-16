@@ -6,6 +6,8 @@ extends Node
 
 var exiled_characters : Array[CharacterData] = []
 
+func reset():
+	exiled_characters.clear()
 
 func exile(character : CharacterData):
 	if character.state == CharacterData.State.EXILED:

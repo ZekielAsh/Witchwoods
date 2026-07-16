@@ -22,6 +22,8 @@ func show_defeat():
 	visible = true
 	result_label.text = "Derrota"
 
+func hide_screen():
+	visible = false
 
 func _on_reveal_button_pressed():
 	reveal_requested.emit()

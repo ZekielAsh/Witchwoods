@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c4bado5gdro7i"]
+
+[ext_resource type="Script" uid="uid://b08lxe0ieodxs" path="res://ui/main_menu.gd" id="1_t7e0r"]
+[ext_resource type="Texture2D" uid="uid://bwhfaw1t667p7" path="res://assets/textures/Fondo Menu.jpg" id="2_0dkrt"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1745993599]
+script = ExtResource("1_t7e0r")
+
+[node name="Container" type="Control" parent="." unique_id=1630528545]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Container" unique_id=193663995]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0dkrt")
+
+[node name="Buttons" type="VBoxContainer" parent="Container" unique_id=435108255]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 744.0
+offset_top = 41.00003
+offset_right = 1898.0
+offset_bottom = 690.0
+grow_vertical = 2
+scale = Vector2(0.2949532, 0.43915796)
+mouse_filter = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Container/Buttons" unique_id=1838182277]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Start"
+
+[node name="TutorialButton" type="Button" parent="Container/Buttons" unique_id=1516881780]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Tutorial"
+
+[node name="CodexButton" type="Button" parent="Container/Buttons" unique_id=145531073]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Codex"
+
+[node name="ExitButton" type="Button" parent="Container/Buttons" unique_id=1656043956]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Exit"
