@@ -1,42 +1,15 @@
 [gd_scene format=3 uid="uid://bocmjd4etaj3v"]
 
 [ext_resource type="Script" uid="uid://drtak62bl18sp" path="res://ui/end_screen.gd" id="1_iuj6g"]
+[ext_resource type="Texture2D" uid="uid://b7g0swhmh1abx" path="res://assets/textures/rolled_down_paper.png" id="2_tkj42"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuj6g"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-bg_color = Color(0.8166588, 0.3338889, 1.92523e-07, 0.7490196)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tkj42"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkj42"]
-content_margin_left = 12.0
-content_margin_top = 12.0
-content_margin_right = 12.0
-content_margin_bottom = 12.0
-bg_color = Color(2.466575, 0.5967772, 0, 0.90000004)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ys8tm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys8tm"]
-content_margin_left = 12.0
-content_margin_top = 12.0
-content_margin_right = 12.0
-content_margin_bottom = 12.0
-bg_color = Color(1, 0.735357, 0.60038817, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqo7y"]
 
 [node name="EndScreen" type="CanvasLayer" unique_id=940881169]
-visible = false
 script = ExtResource("1_iuj6g")
 
 [node name="Overlay" type="ColorRect" parent="." unique_id=613627495]
@@ -54,10 +27,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Background" type="TextureRect" parent="CenterContainer" unique_id=797232227]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("2_tkj42")
+
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1982481681]
 custom_minimum_size = Vector2(300, 180)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_iuj6g")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tkj42")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=967465435]
 layout_mode = 2
@@ -67,7 +45,10 @@ alignment = 1
 [node name="ResultLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1979454946]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 32
+text = "Decime si lo lees"
 horizontal_alignment = 1
 
 [node name="RevealButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=237078876]
@@ -82,6 +63,9 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_tkj42")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ys8tm")
-text = "Reintentar"
+theme_override_colors/font_hover_color = Color(0.8352941, 0.4, 0, 0.9490196)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ys8tm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nqo7y")
+text = "Este lo podes leer?"

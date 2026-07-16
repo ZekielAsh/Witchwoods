@@ -1,6 +1,6 @@
 extends CanvasLayer
 signal start_requested
-signal tutorial_requested
+signal tutorial_game_requested
 signal codex_requested
 signal exit_requested
 
@@ -12,7 +12,7 @@ signal exit_requested
 func _ready():
 
 	start_button.text = "Comenzar investigación"
-	tutorial_button.text = "Manual del investigador"
+	tutorial_button.text = "Aprender a jugar"
 	codex_button.text = "Registro de habitantes"
 	exit_button.text = "Salir"
 
@@ -21,7 +21,7 @@ func _ready():
 	)
 
 	tutorial_button.pressed.connect(
-		func(): tutorial_requested.emit()
+		func(): tutorial_game_requested.emit()
 	)
 
 	codex_button.pressed.connect(

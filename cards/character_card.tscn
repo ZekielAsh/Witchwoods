@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ch5se1kx7vmg1"]
 
 [ext_resource type="Script" uid="uid://bm4avof6w6lm0" path="res://cards/character_card.gd" id="1_08o8e"]
+[ext_resource type="Texture2D" uid="uid://d3mt6t1dyy1oj" path="res://assets/textures/Resaltado.png" id="2_hnymr"]
 [ext_resource type="Texture2D" uid="uid://1urv2jdeqc7j" path="res://assets/textures/Trapper.jpg" id="2_wrcus"]
 [ext_resource type="Texture2D" uid="uid://ru5yjajxi36i" path="res://assets/textures/details/Civilian_card_version2.png" id="3_6mhq2"]
 [ext_resource type="Texture2D" uid="uid://u3t355gdbkkl" path="res://assets/textures/details/tape.png" id="4_6mhq2"]
@@ -24,18 +25,37 @@ offset_left = -90.0
 offset_right = 90.0
 offset_bottom = 270.0
 grow_horizontal = 2
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=434921752]
 layout_mode = 2
 
-[node name="CardImage" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1145702590]
-custom_minimum_size = Vector2(180, 250)
+[node name="Card" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1724235032]
 layout_mode = 2
+
+[node name="Highlight" type="TextureRect" parent="MarginContainer/VBoxContainer/Card" unique_id=701442558]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -12.000001
+offset_top = -14.0
+offset_right = 194.0
+offset_bottom = 307.0
+scale = Vector2(0.994704, 0.9011324)
+texture = ExtResource("2_hnymr")
+stretch_mode = 3
+
+[node name="CardImage" type="TextureRect" parent="MarginContainer/VBoxContainer/Card" unique_id=1145702590]
+custom_minimum_size = Vector2(180, 250)
+layout_mode = 0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 254.0
 texture = ExtResource("2_wrcus")
 expand_mode = 1
 
-[node name="Frame" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage" unique_id=1979751825]
+[node name="Frame" type="TextureRect" parent="MarginContainer/VBoxContainer/Card/CardImage" unique_id=1979751825]
 custom_minimum_size = Vector2(200, 270)
 layout_mode = 1
 anchors_preset = 15
@@ -53,28 +73,26 @@ mouse_default_cursor_shape = 2
 texture = ExtResource("3_6mhq2")
 stretch_mode = 5
 
-[node name="Crown" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=18246434]
-visible = false
+[node name="Borders" type="TextureRect" parent="MarginContainer/VBoxContainer/Card/CardImage/Frame" unique_id=486494847]
 layout_mode = 0
-offset_left = 6.783156
-offset_top = -2.9807224
-offset_right = 187.78316
-offset_bottom = 127.01928
-scale = Vector2(1.0376344, 0.875)
-texture = ExtResource("4_6mhq2")
-
-[node name="Borders" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=486494847]
-visible = false
-layout_mode = 0
-offset_left = 1.9380443
+offset_left = 1.9380444
 offset_top = -4.9678717
 offset_right = 196.93805
 offset_bottom = 279.03214
-scale = Vector2(0.99993867, 0.972628)
+scale = Vector2(0.99993867, 1.0142727)
 texture = ExtResource("4_tmor7")
 expand_mode = 1
 
-[node name="Paper" type="TextureRect" parent="MarginContainer/VBoxContainer/CardImage/Frame" unique_id=1379361726]
+[node name="Crown" type="TextureRect" parent="MarginContainer/VBoxContainer/Card/CardImage/Frame" unique_id=18246434]
+layout_mode = 0
+offset_left = 6.7831564
+offset_top = 3.9742973
+offset_right = 187.78316
+offset_bottom = 133.9743
+scale = Vector2(1.0376344, 0.875)
+texture = ExtResource("4_6mhq2")
+
+[node name="Paper" type="TextureRect" parent="MarginContainer/VBoxContainer/Card/CardImage/Frame" unique_id=1379361726]
 visible = false
 layout_mode = 0
 offset_left = 25.19458
@@ -84,7 +102,7 @@ offset_bottom = 277.75342
 scale = Vector2(0.8526277, 0.76839757)
 texture = ExtResource("5_wig56")
 
-[node name="IDLabel" type="Label" parent="MarginContainer/VBoxContainer/CardImage" unique_id=1734571658]
+[node name="IDLabel" type="Label" parent="MarginContainer/VBoxContainer/Card/CardImage" unique_id=1734571658]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = 228.0
@@ -94,7 +112,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 horizontal_alignment = 1
 
-[node name="RoleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardImage" unique_id=265871828]
+[node name="RoleLabel" type="Label" parent="MarginContainer/VBoxContainer/Card/CardImage" unique_id=265871828]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -1.0

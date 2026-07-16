@@ -11,8 +11,10 @@
 [ext_resource type="Script" uid="uid://dsj5ty7php7bw" path="res://match/match_generator.gd" id="8_cegan"]
 [ext_resource type="Script" uid="uid://fg77ty4cmbd4" path="res://managers/stability_system.gd" id="9_82xsv"]
 [ext_resource type="PackedScene" uid="uid://bocmjd4etaj3v" path="res://ui/EndScreen.tscn" id="9_kek77"]
+[ext_resource type="Script" uid="uid://bwkyo3ube732h" path="res://systems/tutorial_controller.gd" id="10_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://cjmge61n61mr1" path="res://ui/character_panel.tscn" id="10_getpj"]
 [ext_resource type="AudioStream" uid="uid://nr6fjwp4ivgm" path="res://assets/audio/ambience/forest_loop.ogg" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://duaryunae4yam" path="res://ui/tutorial_dialog.tscn" id="12_yaehf"]
 [ext_resource type="Script" uid="uid://bdtg5ljitd2ph" path="res://managers/audio_manager.gd" id="12_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://baq5mrshg4uvy" path="res://ui/tutorial_tip.tscn" id="15_vivmo"]
 
@@ -49,7 +51,8 @@ script = ExtResource("8_cegan")
 [node name="StabilitySystem" type="Node" parent="GameManager" unique_id=426515526]
 script = ExtResource("9_82xsv")
 
-[node name="TurnManager" type="Node" parent="GameManager" unique_id=565487197]
+[node name="TutorialController" type="Node" parent="GameManager" unique_id=1651120781]
+script = ExtResource("10_2cqfq")
 
 [node name="MarginContainer" type="MarginContainer" parent="GameManager" unique_id=1336098987]
 offset_right = 40.0
@@ -77,6 +80,8 @@ offset_right = 0.0
 offset_bottom = 60.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="TutorialDialog" parent="." unique_id=1317291988 instance=ExtResource("12_yaehf")]
 
 [node name="TutorialTip" parent="." unique_id=1491652203 instance=ExtResource("15_vivmo")]
 visible = false

@@ -11,14 +11,19 @@ func _ready() -> void:
 	panel.hide()
 	tutorial.hide()
 
-	menu.start_requested.connect(_on_start)
-	menu.tutorial_requested.connect(_on_guide)
+	menu.start_requested.connect(_on_start_normal)
+	menu.tutorial_game_requested.connect(_on_start_tutorial)
 
-func _on_start():
+func _on_start_normal():
 	menu.hide()
 	hud.show()
 	panel.show()
-	game.start_game()
+	
+	game.start_game(GameManager.GameMode.NORMAL)
 
-func _on_guide():
-	tutorial.open()
+func _on_start_tutorial():
+	menu.hide()
+	hud.show()
+	panel.show()
+
+	game.start_game(GameManager.GameMode.TUTORIAL)

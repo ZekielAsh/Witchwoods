@@ -3,6 +3,7 @@ extends Node
 
 @onready var bus : EventBus = $"../EventBus"
 @onready var board : BoardManager = $"../BoardManager"
+@onready var game_manager : GameManager = $"../../GameManager"
 
 var exiled_characters : Array[CharacterData] = []
 
@@ -30,4 +31,6 @@ func check_victory():
 				all_saboteurs_exiled = false
 
 	if all_saboteurs_exiled:
+		if game_manager.current_game_mode == GameManager.GameMode.TUTORIAL:
+			return
 		bus.game_won.emit()

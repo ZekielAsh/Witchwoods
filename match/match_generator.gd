@@ -12,10 +12,27 @@ const TOWN_ROLES = [
 	CharacterData.Role.MIME
 ]
 
-func generate_match(level : int = 1) -> Array[CharacterData]:
-	var match := create_random_match(level)
-	InformationGenerator.generate(match)
-	return match
+func generate_match(level := 1) -> MatchData:
+	var data := MatchData.new()
+
+	data.mode = GameManager.GameMode.NORMAL
+	data.characters = create_random_match(level)
+
+	InformationGenerator.generate(data.characters)
+
+	return data
+
+func generate_tutorial_match() -> MatchData:
+	var data := MatchData.new()
+
+	data.mode = GameManager.GameMode.TUTORIAL
+	data.characters = create_tutorial_match()
+
+	InformationGenerator.generate(data.characters)
+	data.tutorial_data = TutorialData.new()
+	data.tutorial_data.initialize(data.characters)
+
+	return data
 
 func create_random_match(level : int) -> Array[CharacterData]:
 	var characters : Array[CharacterData] = []
@@ -56,6 +73,40 @@ func create_random_match(level : int) -> Array[CharacterData]:
 	characters.shuffle()
 	for i in range(characters.size()): characters[i].character_id = i + 1
 	assign_positions(characters)
+	return characters
+
+func create_tutorial_match() -> Array[CharacterData]:
+	var characters : Array[CharacterData] = []
+
+	characters.append(make_character(
+		CharacterData.Role.COUNSELOR,
+		CharacterData.Role.COUNSELOR,
+		CharacterData.Faction.TOWN
+	))
+
+	characters.append(make_character(
+		CharacterData.Role.INFILTRATOR,
+		CharacterData.Role.LIBRARIAN,
+		CharacterData.Faction.SABOTEUR
+	))
+
+	characters.append(make_character(
+		CharacterData.Role.LIBRARIAN,
+		CharacterData.Role.LIBRARIAN,
+		CharacterData.Faction.TOWN
+	))
+
+	characters.append(make_character(
+		CharacterData.Role.CHRONICLER,
+		CharacterData.Role.CHRONICLER,
+		CharacterData.Faction.TOWN
+	))
+
+	for i in range(characters.size()):
+		characters[i].character_id = i + 1
+
+	assign_positions(characters)
+
 	return characters
 
 func assign_positions(characters : Array) -> void:

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dev5magd0wsw6"]
+
+[node name="TutorialUI" type="CanvasLayer" unique_id=312824281]
+
+[node name="DialogueBox" type="Panel" parent="." unique_id=1214438538]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NameLabel" type="Label" parent="DialogueBox" unique_id=1517896846]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextLabel" type="Label" parent="DialogueBox" unique_id=1615810835]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ContinueButton" type="Button" parent="DialogueBox" unique_id=1441403117]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="HighlightLayer" type="CanvasLayer" parent="." unique_id=320629660]
