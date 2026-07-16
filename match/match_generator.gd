@@ -12,14 +12,13 @@ const TOWN_ROLES = [
 	CharacterData.Role.MIME
 ]
 
-func generate_match(level : int = 1) -> Array:
+func generate_match(level : int = 1) -> Array[CharacterData]:
 	var match := create_random_match(level)
 	InformationGenerator.generate(match)
 	return match
 
-
-func create_random_match(level : int) -> Array:
-	var characters := []
+func create_random_match(level : int) -> Array[CharacterData]:
+	var characters : Array[CharacterData] = []
 	var total_characters := get_character_count(level)
 	var saboteur_count := get_saboteur_count(total_characters)
 	var town_count := total_characters - saboteur_count
@@ -59,7 +58,6 @@ func create_random_match(level : int) -> Array:
 	assign_positions(characters)
 	return characters
 
-
 func assign_positions(characters : Array) -> void:
 	var count := characters.size()
 	var columns := 4
@@ -75,16 +73,13 @@ func assign_positions(characters : Array) -> void:
 
 		characters[i].board_position = Vector2i(x, y)
 
-
 func get_character_count(level : int) -> int:
 	var options = [4, 6, 8]
 	return options.pick_random()
 
-
 func get_saboteur_count(character_count : int) -> int:
 	if character_count >= 6: return 2
 	return 1
-
 
 func make_character(real_role, visible_role, faction) -> CharacterData:
 	var character = CharacterData.new()
@@ -92,7 +87,7 @@ func make_character(real_role, visible_role, faction) -> CharacterData:
 	character.visible_role = visible_role
 	character.faction = faction
 	return character
-	
+
 func configure_mime(characters : Array) -> void:
 	var mime = null
 	for character in characters:

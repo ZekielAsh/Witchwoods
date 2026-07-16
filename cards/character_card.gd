@@ -1,7 +1,7 @@
 class_name CharacterCard
 extends Button
 
-@onready var bus : EventBus = $"../../EventBus"
+@onready var bus : EventBus = $"../../../EventBus"
 
 var data : CharacterData
 var reveal_mode := false
