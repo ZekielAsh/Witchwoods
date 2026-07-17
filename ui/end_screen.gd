@@ -26,7 +26,7 @@ func show_victory():
 func show_defeat():
 	visible = true
 	result_label.text = "Derrota"
-	legend_label.text = "La aldea ha sucumbido en el engaño."
+	legend_label.text = "La aldea ha caido en el engaño."
 	retry_button.text = "Nueva investigación"
 
 func hide_screen():

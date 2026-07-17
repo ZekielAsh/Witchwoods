@@ -9,69 +9,69 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4e15o"]
 
-[node name="TutorialDialog" type="Control" unique_id=1317291988]
+[node name="TutorialDialog" type="Control" unique_id=61515651]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 3
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 934.0
-offset_top = 424.0
-offset_right = 934.0
-offset_bottom = 424.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.1604443, 0.15917176)
+anchors_preset = 0
+offset_right = 420.0
+offset_bottom = 160.0
 script = ExtResource("1_1276n")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1388242631]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1600253944]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -209.61621
-offset_top = -129.76166
-offset_right = -209.61621
-offset_bottom = -129.76166
+offset_left = -60.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.3540399, 1.2276521)
+scale = Vector2(1.091, 1)
 texture = ExtResource("2_0c0yd")
-expand_mode = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=627716207]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1129428928]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = -124.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.997339, 0.99617267)
+scale = Vector2(1.427, 1)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_h4t55")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1531815732]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=323294422]
 layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=359453671]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1404105931]
 layout_mode = 2
 alignment = 1
 
-[node name="Message" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=957051280]
+[node name="Message" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1252628194]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/default_color = Color(0.8352941, 0.4, 0, 0.9490196)
+theme_override_colors/default_color = Color(0.23137255, 0.16862746, 0.10980392, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 14
+text = "Y mas vale que sea legible."
 horizontal_alignment = 1
 
-[node name="NextButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=73557945]
+[node name="NextButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=426187355]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 10)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.23137255, 0.16862746, 0.10980392, 1)
 theme_override_colors/font_hover_color = Color(0.8352941, 0.4, 0, 0.9490196)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w7mgy")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_4e15o")
+text = "Esto tiene que quedar legible."

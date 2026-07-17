@@ -26,8 +26,8 @@ func start(match : MatchData):
 	current_step = Step.SELECT_COUNSELOR
 
 	bus.tutorial_show_message.emit(
-		"Bienvenido, investigador.\n\nComencemos hablando con este aldeano.",
-		"Comenzar"
+		"Bienvenido, investigador.\n\nNecesitamos que nos ayude.",
+		"Continuar"
 	)
 
 	bus.tutorial_highlight_character.emit(
