@@ -16,7 +16,8 @@ func exile(character : CharacterData):
 
 	character.state = CharacterData.State.EXILED
 	exiled_characters.append(character)
-
+	
+	bus.exile_loop_stopped.emit()
 	bus.character_exiled.emit(character)
 
 	check_victory()

@@ -8,6 +8,7 @@ signal exit_requested
 @onready var tutorial_button = %TutorialButton
 @onready var codex_button = %CodexButton
 @onready var exit_button = %ExitButton
+@onready var bus : EventBus = $"../GameManager/EventBus"
 
 func _ready():
 
@@ -16,20 +17,24 @@ func _ready():
 	codex_button.text = "Registro de habitantes"
 	exit_button.text = "Salir"
 
-	start_button.pressed.connect(
-		func(): start_requested.emit()
+	start_button.pressed.connect(func():
+		bus.ui_button_pressed.emit()
+		start_requested.emit()
 	)
 
-	tutorial_button.pressed.connect(
-		func(): tutorial_game_requested.emit()
+	tutorial_button.pressed.connect(func():
+		bus.ui_button_pressed.emit()
+		tutorial_game_requested.emit()
 	)
 
-	codex_button.pressed.connect(
-		func(): codex_requested.emit()
+	codex_button.pressed.connect(func():
+		bus.ui_button_pressed.emit()
+		codex_requested.emit()
 	)
 
-	exit_button.pressed.connect(
-		func(): exit_requested.emit()
+	exit_button.pressed.connect(func():
+		bus.ui_button_pressed.emit()
+		exit_requested.emit()
 	)
 
 func open():

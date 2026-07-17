@@ -35,12 +35,12 @@ func _ready():
 	bus.game_lost.connect(_on_game_lost)
 	
 	end_screen.retry_requested.connect(_restart_game)
-	end_screen.reveal_requested.connect(_on_reveal_requested)
 	
 	bus.tutorial_show_message.connect(tutorial_dialog.show_message)
 	tutorial_dialog.next_pressed.connect(func(): bus.tutorial_next_step.emit())
 	
 func start_game(mode : GameMode = GameMode.NORMAL):
+	bus.new_investigation_started.emit()
 	current_game_mode = mode
 
 	game_finished = false
@@ -66,13 +66,21 @@ func set_mode(mode):
 	current_mode = mode
 	bus.interaction_mode_changed.emit(mode)
 
+	if mode == InteractionMode.EXILE:
+		bus.capture_mode_entered.emit()
+		bus.exile_loop_started.emit()
+
 func clear_mode():
 	current_mode = InteractionMode.NONE
 	bus.interaction_mode_changed.emit(current_mode)
 
-func _on_character_selected(character : CharacterData):
+	bus.capture_mode_exited.emit()
+	bus.exile_loop_stopped.emit()
+
+func _on_character_selected(character):
 	match current_mode:
 		InteractionMode.NONE:
+			bus.character_inspected.emit(character)
 			character_panel.display_character(character)
 		InteractionMode.EXILE:
 			match_controller.exile(character)
@@ -98,7 +106,3 @@ func _restart_game():
 		tutorial_completed = false
 	
 	start_game(current_game_mode)
-
-func _on_reveal_requested():
-	character_panel.set_reveal_mode()
-	end_screen.hide_screen()

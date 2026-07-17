@@ -1,11 +1,11 @@
 extends CanvasLayer
 
 signal retry_requested
-signal reveal_requested
 
 @onready var result_label = %ResultLabel
 @onready var legend_label = %LegendLabel
 @onready var retry_button = %RetryButton
+@onready var bus : EventBus = $"../GameManager/EventBus"
 
 var analysis_mode := false
 var from_tutorial := true
@@ -33,4 +33,5 @@ func hide_screen():
 	visible = false
 
 func _on_retry_button_pressed():
+	bus.ui_button_pressed.emit()
 	retry_requested.emit()

@@ -5,12 +5,15 @@ signal next_pressed
 
 @onready var message = %Message
 @onready var next_button = %NextButton
+@onready var bus : EventBus = $"../GameManager/EventBus"
 
 
 func _ready():
 	next_button.pressed.connect(_on_next_pressed)
 
 func _on_next_pressed():
+	bus.paper_flipped.emit()
+	
 	hide()
 	next_pressed.emit()
 

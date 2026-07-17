@@ -110,7 +110,8 @@ script = ExtResource("12_ycdy4")
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="AudioManager" unique_id=1242870423]
 unique_name_in_owner = true
 stream = ExtResource("12_dg77c")
-parameters/looping = true
 
 [node name="SfxPlayer" type="AudioStreamPlayer2D" parent="AudioManager" unique_id=1221701150]
 unique_name_in_owner = true
+
+[node name="StatePlayer" type="AudioStreamPlayer2D" parent="AudioManager" unique_id=1209521027]
