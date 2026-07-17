@@ -15,7 +15,7 @@ func _ready():
 	start_button.text = "Comenzar investigación"
 	tutorial_button.text = "Aprender a jugar"
 	codex_button.text = "Guia de Investigación"
-	exit_button.text = "Salir"
+	exit_button.text = "Créditos"
 
 	start_button.pressed.connect(func():
 		bus.ui_button_pressed.emit()

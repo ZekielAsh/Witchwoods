@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://nr6fjwp4ivgm" path="res://assets/audio/ambience/forest_loop.ogg" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://duaryunae4yam" path="res://ui/tutorial_dialog.tscn" id="12_yaehf"]
 [ext_resource type="Script" uid="uid://bdtg5ljitd2ph" path="res://managers/audio_manager.gd" id="12_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bkuvykrq781u4" path="res://ui/credits.tscn" id="14_074og"]
 [ext_resource type="PackedScene" uid="uid://baq5mrshg4uvy" path="res://ui/tutorial_tip.tscn" id="15_vivmo"]
 
 [node name="Main" type="Node" unique_id=1797677496]
@@ -97,6 +98,9 @@ grow_vertical = 0
 
 [node name="TutorialTip" parent="." unique_id=1491652203 instance=ExtResource("15_vivmo")]
 position = Vector2i(270, 80)
+visible = false
+
+[node name="Credits" parent="." unique_id=1615006000 instance=ExtResource("14_074og")]
 visible = false
 
 [node name="GameHUD" parent="." unique_id=945971603 instance=ExtResource("3_272bh")]

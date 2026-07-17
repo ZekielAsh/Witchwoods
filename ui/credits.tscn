@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bkuvykrq781u4"]
+
+[ext_resource type="Script" uid="uid://m3afadwq10lh" path="res://ui/credits.gd" id="1_ed0b0"]
+[ext_resource type="Texture2D" uid="uid://b7g0swhmh1abx" path="res://assets/textures/rolled_down_paper.png" id="2_orljq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ed0b0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orljq"]
+
+[node name="Credits" type="PopupPanel" unique_id=1615006000]
+oversampling_override = 1.0
+position = Vector2i(280, 0)
+size = Vector2i(600, 600)
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ed0b0")
+script = ExtResource("1_ed0b0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=780561968]
+offset_right = 600.0
+offset_bottom = 600.0
+scale = Vector2(0.95498943, 1.038273)
+texture = ExtResource("2_orljq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=863714047]
+offset_right = 600.0
+offset_bottom = 600.0
+scale = Vector2(0.9244222, 1.0441502)
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1698058373]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1915897399]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+text = "WITCHWOODS"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=771363906]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_orljq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=422256287]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "Investiga.
+Duda.
+Protege la aldea.
+
+────────────────────────────────────────
+
+Desarrollado para el
+Showcase de Videojuegos
+Universidad Nacional de Quilmes
+
+Programación y Diseño
+Sebastian Ezequiel Quaglia
+
+Motor
+Godot Engine 4.7
+
+Arte
+Imagenes proveidas por:
+Fate/Grand Order
+Diseño de cartas:
+CraftPix
+
+
+Música y SFX
+Recursos libres proveidos por:
+Martia's Muses
+Zapsplat
+EpidemicSound
+
+────────────────────
+
+Gracias por jugar."
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1731253613]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Cerrar"

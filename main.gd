@@ -5,6 +5,7 @@ extends Node
 @onready var hud = $GameHUD
 @onready var panel = $GameManager/CharacterPanel
 @onready var tutorial = $TutorialTip
+@onready var credits = $Credits
 @onready var audio = $AudioManager
 
 func _ready() -> void:
@@ -15,6 +16,7 @@ func _ready() -> void:
 	menu.start_requested.connect(_on_start_normal)
 	menu.tutorial_game_requested.connect(_on_start_tutorial)
 	menu.codex_requested.connect(_on_open_guide)
+	menu.exit_requested.connect(_on_open_credits)
 
 func _on_start_normal():
 	menu.hide()
@@ -38,3 +40,6 @@ func _on_start_tutorial():
 
 func _on_open_guide():
 	tutorial.show()
+
+func _on_open_credits():
+	credits.show()
