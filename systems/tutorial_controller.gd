@@ -78,6 +78,6 @@ func _on_character_exiled(character):
 
 	bus.tutorial_clear_highlights.emit()
 	bus.tutorial_show_message.emit(
-		"¡Excelente trabajo investigador!\n\nHas rescatado la aldea.",
+		"¡Excelente trabajo investigador!\n\nEsto completa tu primer rescate.",
 		"¡Ahora ve y salva mas aldeas!"
 	)

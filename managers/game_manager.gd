@@ -21,6 +21,7 @@ enum InteractionMode {
 @onready var end_screen = $"../EndScreen"
 @onready var audio = $"../AudioManager"
 @onready var tutorial_dialog = $"../TutorialDialog"
+@onready var stability_system = $StabilitySystem
 
 var current_game_mode := GameMode.NORMAL
 var current_mode := InteractionMode.NONE
@@ -46,8 +47,9 @@ func start_game(mode : GameMode = GameMode.NORMAL):
 	set_mode(InteractionMode.NONE)
 
 	match_controller.reset()
-	var match_data : MatchData
+	stability_system.reset()
 	
+	var match_data : MatchData
 	match current_game_mode:
 		GameMode.NORMAL:
 			match_data = match_generator.generate_match()

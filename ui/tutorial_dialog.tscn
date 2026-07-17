@@ -1,21 +1,41 @@
 [gd_scene format=3 uid="uid://duaryunae4yam"]
 
 [ext_resource type="Script" uid="uid://drpvtloxh42n8" path="res://ui/tutorial_dialog.gd" id="1_1276n"]
+[ext_resource type="Texture2D" uid="uid://bihwmb6wh66ry" path="res://assets/textures/details/paper.png" id="2_0c0yd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4t55"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7mgy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4e15o"]
 
 [node name="TutorialDialog" type="Control" unique_id=1317291988]
-visible = false
 layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 934.0
+offset_top = 424.0
+offset_right = 934.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1604443, 0.15917176)
+script = ExtResource("1_1276n")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1388242631]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 838.0
-offset_top = 398.0
-offset_right = 838.0
-offset_bottom = 398.0
+offset_left = -209.61621
+offset_top = -129.76166
+offset_right = -209.61621
+offset_bottom = -129.76166
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.20811747, 0.29222894)
-script = ExtResource("1_1276n")
+scale = Vector2(1.3540399, 1.2276521)
+texture = ExtResource("2_0c0yd")
+expand_mode = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=627716207]
 layout_mode = 1
@@ -24,21 +44,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.997339, 0.99617267)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h4t55")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1531815732]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=359453671]
 layout_mode = 2
+alignment = 1
 
 [node name="Message" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=957051280]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 67
+theme_override_colors/default_color = Color(0.8352941, 0.4, 0, 0.9490196)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 80
+horizontal_alignment = 1
 
 [node name="NextButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=73557945]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 67
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.8352941, 0.4, 0, 0.9490196)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w7mgy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4e15o")

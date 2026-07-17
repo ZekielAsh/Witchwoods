@@ -82,13 +82,16 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="TutorialDialog" parent="." unique_id=1317291988 instance=ExtResource("12_yaehf")]
+visible = false
 
 [node name="TutorialTip" parent="." unique_id=1491652203 instance=ExtResource("15_vivmo")]
 visible = false
 
 [node name="GameHUD" parent="." unique_id=945971603 instance=ExtResource("3_272bh")]
+visible = false
 
 [node name="EndScreen" parent="." unique_id=940881169 instance=ExtResource("9_kek77")]
+visible = false
 
 [node name="AudioManager" type="Node" parent="." unique_id=279783960]
 script = ExtResource("12_ycdy4")
