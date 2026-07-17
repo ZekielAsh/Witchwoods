@@ -47,6 +47,7 @@ texture = ExtResource("2_hnymr")
 stretch_mode = 3
 
 [node name="CardImage" type="TextureRect" parent="MarginContainer/VBoxContainer/Card" unique_id=1145702590]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 250)
 layout_mode = 0
 offset_top = 4.0

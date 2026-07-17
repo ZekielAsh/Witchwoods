@@ -14,6 +14,7 @@ func _ready() -> void:
 
 	menu.start_requested.connect(_on_start_normal)
 	menu.tutorial_game_requested.connect(_on_start_tutorial)
+	menu.codex_requested.connect(_on_open_guide)
 
 func _on_start_normal():
 	menu.hide()
@@ -34,3 +35,6 @@ func _on_start_tutorial():
 
 	audio.play_music(AudioManager.Music.GAME)
 	game.start_game(GameManager.GameMode.TUTORIAL)
+
+func _on_open_guide():
+	tutorial.show()

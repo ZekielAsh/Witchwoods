@@ -2,12 +2,13 @@ class_name CharacterCard
 extends Button
 
 @onready var bus : EventBus = $"../../../EventBus"
-@onready var highlight = %Highlight
 
 var data : CharacterData
 var reveal_mode := false
 var highlighted := false
 
+@onready var card_image = %CardImage
+@onready var highlight = %Highlight
 @onready var id_label = %IDLabel
 @onready var role_label = %RoleLabel
 
@@ -33,10 +34,16 @@ func update_visuals():
 	id_label.text = "#%d"  % data.character_id
 	if reveal_mode:
 		role_label.text = data.get_real_role_name()
+		role_label.modulate = data.get_faction_color()
+		card_image.texture = data.get_real_portrait()
 	elif data.state == CharacterData.State.EXILED:
 		role_label.text = data.get_real_role_name()
+		role_label.modulate = data.get_faction_color()
+		card_image.texture = data.get_real_portrait()
 	else:
 		role_label.text = data.get_role_name()
+		role_label.modulate = Color.WHITE
+		card_image.texture = data.get_visible_portrait()
 
 func update_style():
 	if data.state == CharacterData.State.EXILED:

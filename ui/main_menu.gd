@@ -14,7 +14,7 @@ func _ready():
 
 	start_button.text = "Comenzar investigación"
 	tutorial_button.text = "Aprender a jugar"
-	codex_button.text = "Registro de habitantes"
+	codex_button.text = "Guia de Investigación"
 	exit_button.text = "Salir"
 
 	start_button.pressed.connect(func():

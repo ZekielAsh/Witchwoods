@@ -16,11 +16,17 @@ offset_bottom = 630.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=2128090119]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 540.0
+offset_top = -93.0
+offset_right = 598.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ExileButton" type="Button" parent="Control/HBoxContainer" unique_id=1121671648]
 unique_name_in_owner = true
